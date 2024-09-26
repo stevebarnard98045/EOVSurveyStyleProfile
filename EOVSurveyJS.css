@@ -1,0 +1,81 @@
+(function() {
+// Add custom styles to make the list view look like a survey
+const styleElement = document.createElement('style');
+styleElement.innerHTML = `
+.list-view-item {
+padding: 10px;
+background-color: #f7f7f7;
+border: 1px solid #ccc;
+margin-bottom: 15px;
+border-radius: 5px;
+}
+
+.list-view-item:hover {
+background-color: #e0f7fa;
+}
+
+.list-view-header {
+font-size: 20px;
+color: #00796b;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.list-view-item .label {
+font-size: 16px;
+color: #333;
+font-weight: normal;
+}
+
+.list-view-item input[type="text"],
+.list-view-item textarea,
+.list-view-item select {
+width: 100%;
+padding: 8px;
+font-size: 14px;
+border: 1px solid #ccc;
+border-radius: 4px;
+margin-top: 5px;
+}
+
+.list-view-item .required-indicator {
+color: #d32f2f;
+}
+
+.list-view-footer {
+margin-top: 20px;
+text-align: right;
+}
+
+.list-view-footer .button {
+background-color: #00796b;
+color: white;
+border: none;
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+border-radius: 4px;
+}
+
+.list-view-footer .button:hover {
+background-color: #004d40;
+}
+`;
+document.head.appendChild(styleElement);
+
+// Adjust layout for list view items to align with survey style
+const listViewItems = document.querySelectorAll('.list-view-item');
+listViewItems.forEach(item => {
+// Add custom classes or manipulate DOM structure as needed
+const label = item.querySelector('.label');
+if (label) {
+label.style.display = 'block';
+label.style.marginBottom = '10px';
+}
+
+const inputElements = item.querySelectorAll('input, textarea, select');
+inputElements.forEach(input => {
+input.style.marginBottom = '15px';
+});
+});
+})();
